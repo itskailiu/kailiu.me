@@ -1,18 +1,8 @@
-<header class="site-header">
-  <a class="logo" href="/">Kai Liu<span>.</span></a>
 
-  <nav aria-label="主导航">
-    <a href="/#about">关于</a>
-    <a href="/#focus">方向</a>
-    <a href="/#now">近况</a>
-    <a
-      href="https://github.com/kailiudev"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      GitHub ↗
-    </a>
-  </nav>
+<header class="site-header">
+  <a class="logo" href="/" aria-label="Kai Liu 首页">
+    Kai Liu<span>.</span>
+  </a>
 </header>
 
 <style>
@@ -20,57 +10,26 @@
     height: 94px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     border-bottom: 1px solid #e9e9e5;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
   }
 
   .logo {
     font-size: 23px;
     font-weight: 750;
-    letter-spacing: -.7px;
+    letter-spacing: -0.7px;
   }
 
   .logo span {
     color: #4268d6;
   }
 
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
-
-  nav a {
-    font-size: 14px;
-    color: #667085;
-    transition: color .2s;
-  }
-
-  nav a:hover {
-    color: #4268d6;
-  }
-
   @media (max-width: 760px) {
     .site-header {
-      height: auto;
-      min-height: 76px;
-      gap: 16px;
-      flex-wrap: wrap;
-      padding: 18px 0;
+      height: 76px;
     }
 
-    nav {
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      font-size: 12px;
+    .logo {
+      font-size: 21px;
     }
   }
 </style>

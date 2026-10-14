@@ -4,7 +4,10 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <span>© {year} Kai Liu</span>
-  <span>Learning · Building · Growing</span>
+
+  <a href="mailto:hello@kailiu.me" aria-label="发送电子邮件">
+    Email ↗
+  </a>
 </footer>
 
 <style>
@@ -12,14 +15,24 @@ const year = new Date().getFullYear();
     border-top: 1px solid #e9e9e5;
     padding: 30px 0 45px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 16px;
     color: #98a2b3;
     font-size: 12px;
   }
 
-  @media (max-width: 760px) {
+  .site-footer a {
+    color: #667085;
+    text-decoration: none;
+  }
+
+  .site-footer a:hover {
+    color: #4268d6;
+  }
+
+  @media (max-width: 480px) {
     .site-footer {
-      gap: 16px;
       flex-wrap: wrap;
     }
   }
