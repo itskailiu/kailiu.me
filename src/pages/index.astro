@@ -1,16 +1,165 @@
 ---
+const year = new Date().getFullYear();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Kai Liu 的个人网站，记录计算机科学学习、技术实践与长期成长。" />
+    <title>Kai Liu | 个人主页</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <a class="logo" href="/">Kai Liu<span>.</span></a>
+        <nav aria-label="主导航">
+          <a href="#about">关于</a>
+          <a href="#focus">方向</a>
+          <a href="#now">近况</a>
+          <a href="https://github.com/kailiudev" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" id="about">
+          <div>
+            <p class="eyebrow">HELLO, I'M KAI LIU</p>
+            <h1>保持好奇，<br /><span>持续构建。</span></h1>
+            <p class="description">
+              一名计算机科学方向的学生。<br />
+              正在系统学习计算机基础、数学与编程，
+              探索技术背后的原理，并记录成长。
+            </p>
+            <div class="actions">
+              <a class="primary" href="#focus">了解我的方向 ↗</a>
+              <a class="secondary" href="https://github.com/kailiudev" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <aside class="status" id="now">
+            <div class="status-heading"><span class="dot"></span> CURRENTLY LEARNING</div>
+            <h2>正在学习</h2>
+            <ul>
+              <li>计算机组成原理</li>
+              <li>操作系统</li>
+              <li>数据结构与算法</li>
+              <li>计算机网络</li>
+              <li>数学与 C 语言</li>
+            </ul>
+            <p class="status-footer">2026 · Building foundations</p>
+          </aside>
+        </section>
+
+        <section class="focus" id="focus">
+          <div class="section-head">
+            <p class="eyebrow">WHAT I FOCUS ON</p>
+            <h2>我的关注方向</h2>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <span class="number">01 /</span>
+              <h3>计算机基础</h3>
+              <p>从计算机系统的底层原理出发，理解软硬件如何协同工作。</p>
+            </article>
+            <article class="card">
+              <span class="number">02 /</span>
+              <h3>编程与工程实践</h3>
+              <p>把知识转化为代码，通过真实项目不断提升工程能力。</p>
+            </article>
+            <article class="card">
+              <span class="number">03 /</span>
+              <h3>学习与知识积累</h3>
+              <p>记录学习过程、思考与实践，逐步建立自己的知识体系。</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>© {year} Kai Liu</span>
+        <span>Learning · Building · Growing</span>
+      </footer>
+    </div>
+  </body>
 </html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(html) { scroll-behavior: smooth; }
+  :global(body) {
+    margin: 0;
+    background: #fafaf8;
+    color: #172033;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  :global(a) { color: inherit; text-decoration: none; }
+  .container { max-width: 1120px; margin: auto; padding: 0 32px; }
+  header {
+    height: 94px; display: flex; align-items: center;
+    justify-content: space-between; border-bottom: 1px solid #e9e9e5;
+  }
+  .logo { font-size: 23px; font-weight: 750; letter-spacing: -.7px; }
+  .logo span { color: #4268d6; }
+  nav { display: flex; align-items: center; gap: 30px; }
+  nav a { font-size: 14px; color: #667085; transition: color .2s; }
+  nav a:hover, .secondary:hover { color: #4268d6; }
+  .hero {
+    padding: 120px 0 125px; display: grid;
+    grid-template-columns: 1.4fr 1fr; gap: 90px; align-items: center;
+  }
+  .eyebrow { color: #4268d6; font-size: 12px; font-weight: 750; letter-spacing: 2px; }
+  h1 { font-size: clamp(42px, 5.5vw, 72px); line-height: 1.28; letter-spacing: -2px; margin: 24px 0; }
+  h1 span { color: #4268d6; }
+  .description { color: #667085; font-size: 17px; line-height: 2; max-width: 570px; }
+  .actions { display: flex; gap: 14px; margin-top: 36px; }
+  .primary, .secondary {
+    padding: 14px 22px; border-radius: 10px; font-size: 14px;
+    font-weight: 600; display: inline-flex; align-items: center;
+    justify-content: center; transition: .2s;
+  }
+  .primary { background: #4268d6; color: white; }
+  .primary:hover { background: #304fb0; }
+  .secondary { border: 1px solid #e3e5e9; }
+  .status {
+    background: #fff; border: 1px solid #e8e9ed;
+    border-radius: 18px; padding: 32px;
+    box-shadow: 0 18px 55px rgba(23,32,51,.035);
+  }
+  .status-heading { font-size: 11px; letter-spacing: 1.2px; color: #738093; font-weight: 700; }
+  .dot { display: inline-block; width: 8px; height: 8px; background: #39ad78; border-radius: 50%; margin-right: 7px; }
+  .status h2 { font-size: 22px; margin: 26px 0 20px; }
+  .status ul { list-style: none; padding: 0; margin: 0; }
+  .status li { padding: 12px 0; border-bottom: 1px solid #f0f1f3; color: #526075; font-size: 14px; }
+  .status li::before { content: "↗"; color: #4268d6; margin-right: 12px; }
+  .status-footer { font-size: 12px; color: #98a2b3; margin: 24px 0 0; }
+  .focus { padding: 0 0 110px; }
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { font-size: 30px; margin: 12px 0; letter-spacing: -.5px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: #fff; border: 1px solid #e8e9ed; border-radius: 14px; padding: 30px; }
+  .number { font-size: 12px; font-weight: 700; color: #4268d6; }
+  .card h3 { font-size: 18px; margin: 24px 0 12px; }
+  .card p { color: #778294; font-size: 14px; line-height: 1.9; margin: 0; }
+  footer {
+    border-top: 1px solid #e9e9e5; padding: 30px 0 45px;
+    display: flex; justify-content: space-between;
+    color: #98a2b3; font-size: 12px;
+  }
+  @media (max-width: 760px) {
+    .container { padding: 0 22px; }
+    header { height: auto; min-height: 76px; gap: 16px; flex-wrap: wrap; padding: 18px 0; }
+    nav { gap: 16px; flex-wrap: wrap; }
+    nav a { font-size: 12px; }
+    .hero { grid-template-columns: 1fr; gap: 48px; padding: 75px 0 85px; }
+    h1 { letter-spacing: -1px; }
+    .description { font-size: 15px; }
+    .cards { grid-template-columns: 1fr; }
+    .focus { padding-bottom: 75px; }
+    footer { gap: 16px; flex-wrap: wrap; }
+  }
+</style>
