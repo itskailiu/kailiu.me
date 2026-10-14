@@ -15,3 +15,8 @@ dist/
 # Cloudflare local files
 .wrangler/
 .dev.vars*
+
+# Local editor and optional template guidance
+.vscode/
+AGENTS.md
+CLAUDE.md
