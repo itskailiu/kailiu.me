@@ -1,2 +1,17 @@
 .idea/
 .DS_Store
+# Dependencies
+node_modules/
+
+# Astro build output
+dist/
+.astro/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Cloudflare local files
+.wrangler/
+.dev.vars*
