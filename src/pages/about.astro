@@ -5,37 +5,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="关于我 | Kai Liu"
-  description="关于刘凯（Kai Liu）的个人介绍。"
+  description="关于刘凯（Kai Liu）。"
 >
   <main class="about">
 
-    <!-- 页面标题 -->
-    <header class="intro">
+    <section class="intro" aria-labelledby="about-title">
       <p class="eyebrow">ABOUT ME</p>
-      <h1>关于我。</h1>
-    </header>
 
-    <!-- 个人介绍 -->
-    <section class="identity">
-      <h2>刘凯 <span>/ Kai Liu</span></h2>
+      <h1 id="about-title">关于我。</h1>
 
-      <p class="description">
-        计算机科学与技术方向学生。
-      </p>
+      <div class="identity">
+        <h2>
+          刘凯 <span>/ Kai Liu</span>
+        </h2>
 
-      <!-- 开发者网站入口 -->
+        <p class="quote">
+          我，是一路走来的总和。
+        </p>
+      </div>
+    </section>
+
+    <nav class="links" aria-label="了解更多">
+
       <a
-        class="dev-link"
         href="https://kailiu.dev"
         target="_blank"
         rel="noopener noreferrer"
       >
-        前往 kailiu.dev
-        <span aria-hidden="true">↗</span>
+        <span>一个学计算机科学的人</span>
+        <span class="arrow" aria-hidden="true">↗</span>
       </a>
-    </section>
 
-    <!-- 返回首页 -->
+      <a
+        href="https://ours.page"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>一些值得留下的故事</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+    </nav>
+
     <a class="back-link" href="/">
       <span aria-hidden="true">←</span>
       返回首页
@@ -45,110 +56,89 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  /* =========================
-     01. 页面整体布局
-  ========================= */
-
   .about {
     width: 100%;
     max-width: 760px;
     min-height: calc(100svh - 190px);
     margin: 0 auto;
-    padding: 110px 0 100px;
+    padding: 100px 0 95px;
   }
-
-  /* =========================
-     02. 页面标题
-  ========================= */
 
   .eyebrow {
     margin: 0;
-
     color: #4268d6;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1.5px;
   }
 
-  .intro h1 {
-    margin: 25px 0 55px;
-
-    font-size: clamp(40px, 5vw, 60px);
+  h1 {
+    margin: 24px 0 65px;
+    font-size: clamp(42px, 5vw, 60px);
     font-weight: 700;
     line-height: 1.3;
     letter-spacing: -1.5px;
   }
 
-  /* =========================
-     03. 个人介绍
-  ========================= */
-
   .identity h2 {
-    margin: 0 0 20px;
-
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.7;
+    margin: 0 0 22px;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.6;
   }
 
   .identity h2 span {
-    color: #667085;
+    color: #98a2b3;
+    font-size: 16px;
     font-weight: 400;
   }
 
-  .description {
+  .quote {
     margin: 0;
-
     color: #778294;
-    font-size: 16px;
-    line-height: 2;
+    font-size: 18px;
+    line-height: 1.9;
+    letter-spacing: 0.2px;
   }
 
-  /* =========================
-     04. 开发者网站入口
-  ========================= */
+  .links {
+    margin-top: 75px;
+    border-top: 1px solid #e9e9e5;
+  }
 
-  .dev-link {
-    display: inline-flex;
+  .links a {
+    display: flex;
     align-items: center;
-    gap: 8px;
-
-    margin-top: 24px;
-
-    color: #4268d6;
-    font-size: 15px;
-    font-weight: 600;
-
+    justify-content: space-between;
+    gap: 24px;
+    padding: 25px 2px;
+    border-bottom: 1px solid #e9e9e5;
+    font-size: 16px;
+    font-weight: 500;
     transition: color 0.2s ease;
   }
 
-  .dev-link span {
-    display: inline-block;
+  .arrow {
+    color: #4268d6;
+    font-size: 20px;
     transition: transform 0.25s ease;
   }
 
-  .dev-link:hover {
-    color: #304fb0;
+  .links a:hover {
+    color: #4268d6;
   }
 
-  .dev-link:hover span {
+  .links a:hover .arrow {
     transform: translate(3px, -3px);
   }
-
-  /* =========================
-     05. 返回首页
-  ========================= */
 
   .back-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-
-    margin-top: 75px;
-
+    margin-top: 65px;
     color: #667085;
     font-size: 14px;
-
     transition: color 0.2s ease;
   }
 
@@ -156,47 +146,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #4268d6;
   }
 
-  /* =========================
-     06. 键盘访问
-  ========================= */
-
-  .dev-link:focus-visible,
+  .links a:focus-visible,
   .back-link:focus-visible {
     outline: 2px solid #4268d6;
     outline-offset: 5px;
     border-radius: 3px;
   }
 
-  /* =========================
-     07. 移动端适配
-  ========================= */
-
   @media (max-width: 760px) {
     .about {
       min-height: calc(100svh - 165px);
-      padding: 75px 0 90px;
+      padding: 75px 0 85px;
     }
 
-    .intro h1 {
+    h1 {
+      margin-bottom: 52px;
       font-size: 42px;
-      margin-bottom: 45px;
     }
 
     .identity h2 {
-      font-size: 17px;
+      font-size: 19px;
     }
 
-    .description {
+    .identity h2 span {
       font-size: 15px;
     }
 
-    .dev-link {
-      font-size: 14px;
-      margin-top: 22px;
+    .quote {
+      font-size: 16px;
+    }
+
+    .links {
+      margin-top: 60px;
+    }
+
+    .links a {
+      font-size: 15px;
+      padding: 23px 2px;
     }
 
     .back-link {
-      margin-top: 65px;
+      margin-top: 55px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .links a,
+    .arrow,
+    .back-link {
+      transition: none;
     }
   }
 </style>
